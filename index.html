@@ -1,12 +1,160 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <script src="../testable-projects-fcc-v1-bundle.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <title>Water Direct</title>
+</head>
+
+<body>
+    <script src="../testable-projects-fcc-v1-bundle.js"></script>
+    <style>
+        :root {
+            --header-height: 100px;
+            --top-offset: calc(var(--header-height) + 8px);
+            --logo-width: 300px;
+        }
+
+        body {margin: 0;}
+
+        header {
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #CCC;
+            display: grid;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav ul, #logo, #header-img {
+            height: calc(var(--header-height) / 2);
+        }
+
+        #logo-text {
+            top: calc(var(--header-height) / 4);
+        }
         
-    </body>
+        nav ul {
+            margin: 0;
+            padding: 0;
+            display: grid;
+        }
+
+        main {
+            margin: var(--top-offset) 8px 0 8px;
+        }
+
+        section {
+            height: calc(100vh - var(--top-offset));
+            position: relative;
+        }
+
+        a.anchor {
+            position: absolute;
+            top: calc(var(--top-offset) * -1);
+            left: 0;
+        }
+        
+        @media (min-width: 350px) {
+            nav ul {
+                grid-template-columns: auto auto auto;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            header {
+                grid-template-rows: auto;
+                grid-template-columns: var(--logo-width) auto;
+            }
+
+            nav ul {
+                margin-left: 50px;
+            }
+
+        }
+
+        nav ul li {
+            display: block;
+            margin: 5px;
+        }
+
+        #logo {
+            position: relative;
+            width: var(--logo-width);
+        }
+
+        #logo-text {
+            position: absolute;
+            font-size: 30px;
+            line-height: 0px;
+            left: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 1000;
+        }
+
+
+    </style>
+    <header id="header">
+        <div id="logo">
+            <div id="logo-text">Water Direct</div>
+            <img id="header-img" src="https://apsteffey.github.io/freecodecamp/water-logo.jpg" alt="Water Product Logo">
+        </div>
+        <nav id="nav-bar">
+            <ul>
+                <li><a href="#overview" class="nav-link">Overview</a></li>
+                <li><a href="#usage" class="nav-link">Product Usage</a></li>
+                <li><a href="#purchase" class="nav-link">Purchasing</a></li>
+        </nav>
+    </header>
+    <main>
+        <section id="overview-section">
+            <a class="anchor" id="overview" name="overview">&nbsp;</a>
+            <p>Water is a transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main
+                constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. It is vital
+                for all known forms of life, even though it provides no calories or organic nutrients. Its chemical
+                formula is H2O, meaning that each of its molecules contains one oxygen and two hydrogen atoms connected
+                by covalent bonds. Water is the name of the liquid state of H2O at standard ambient temperature and
+                pressure. It forms precipitation in the form of rain and aerosols in the form of fog. Clouds are formed
+                from suspended droplets of water and ice, its solid state. When finely divided, crystalline ice may
+                precipitate in the form of snow. The gaseous state of water is steam or water vapor. Water moves
+                continually through the water cycle of evaporation, transpiration (evapotranspiration), condensation,
+                precipitation, and runoff, usually reaching the sea.</p>
+            <p>Water covers 71% of the Earth's surface, mostly in seas and oceans. Small portions of water occur as
+                groundwater (1.7%), in the glaciers and the ice caps of Antarctica and Greenland (1.7%), and in the air
+                as vapor, clouds (formed of ice and liquid water suspended in air), and precipitation (0.001%).</p>
+            <p>Water plays an important role in the world economy. Approximately 70% of the freshwater used by humans
+                goes to agriculture. Fishing in salt and fresh water bodies is a major source of food for many parts of
+                the world. Much of long-distance trade of commodities (such as oil and natural gas) and manufactured
+                products is transported by boats through seas, rivers, lakes, and canals. Large quantities of water,
+                ice, and steam are used for cooling and heating, in industry and homes. Water is an excellent solvent
+                for a wide variety of chemical substances; as such it is widely used in industrial processes, and in
+                cooking and washing. Water is also central to many sports and other forms of entertainment, such as
+                swimming, pleasure boating, boat racing, surfing, sport fishing, and diving.</p>
+        </section>
+        <section id="usage-section">
+            <a class="anchor" id="usage" name="usage">&nbsp;</a>
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/_pCMUlsrmIk" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section id="purchase-section">
+            <a class="anchor" id="purchase" name="purchase">&nbsp;</a>
+            <form id="form" action="https://www.freecodecamp.com/email-submit" method="POST">
+                <label for="water-amount">Water Quantity (in gallons):</label>
+                <input id="water-amount" name="water-amount" type="number" min="1" placeholder="Gallons of water to order"
+                    required><br>
+                <label for="email">Email Address:</label>
+                <input id="email" name="email" type="email" placeholder="Please enter your email" required><br>
+                <input id="submit" name="submit" type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+</body>
+
 </html>
