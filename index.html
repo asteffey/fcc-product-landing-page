@@ -17,7 +17,7 @@
             --nav-width: 500px;
 
             --header-height: calc(var(--logo-height) + var(--nav-height));
-            --top-offset: calc(var(--header-height) + 8px);
+            --top-offset: calc(var(--header-height) + 15px);
         }
 
         body, header, nav, nav ul, nav ul li {
@@ -90,8 +90,6 @@
             font-weight: 700;
         }
 
-
-
         main {
             margin: var(--top-offset) 8px 0 8px;
         }
@@ -99,12 +97,30 @@
         section {
             min-height: calc(100vh - var(--top-offset));
             position: relative;
+            /*display: flex;
+            flex-direction: column;
+            justify-content: center;*/
+            margin: 0 auto 0 auto;
         }
 
         a.anchor {
             position: absolute;
             top: calc(var(--top-offset) * -1);
             left: 0;
+        }
+
+        #video {
+            --video-width: 90vw;
+            --video-height: calc(var(--video-width) * 315 / 560);
+            
+            height: var(--video-height);
+            width: var(--video-width);
+            
+            max-height: 630px;
+            max-width: 1120px;
+
+            display: block;
+            margin: 0 auto 0 auto;
         }
         
         @media (min-width: 500px) {
@@ -179,7 +195,7 @@
         </section>
         <section id="usage-section">
             <a class="anchor" id="usage" name="usage">&nbsp;</a>
-            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/_pCMUlsrmIk" frameborder="0"
+            <iframe id="video" src="https://www.youtube.com/embed/_pCMUlsrmIk" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
         <section id="purchase-section">
