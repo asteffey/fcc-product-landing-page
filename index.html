@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Water Direct</title>
     <script>
-            function getLocation() {
+        function getLocation() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition, showError);
                 } else { 
@@ -156,12 +156,63 @@
             margin: 0 auto 0 auto;
         }
 
-        #form {
+        #form div {
+            margin: 8px 0 8px 0;
+        }
+
+        #form fieldset {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 454px;
+        }
+
+        label, input[type="button"] {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+            font-weight: 800;
+            display: block;
+        }
+
+        legend {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        input[type="submit"] {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            font-weight: 1000;
+            display: block;
+            margin-top: 16px !important;
+        }
+
+        #location-div {
             display: grid;
-            grid-template-columns: 200px 200px 0;
+            grid-template-columns: 150px 150px;
+        }
+
+        #location-button {
+            align-self: center;
+            justify-self: start;
+        }
+
+        div.latlong-div {
+            margin-top: 0 !important;
+        }
+
+        .latlong-div input {
+            width: 130px;
         }
         
         @media (min-width: 500px) {
+            #location-div {
+                grid-template-columns: 150px 150px 150px;
+            }
+        }
+
+
+        @media (min-width: 498px) {
             nav ul {
                 grid-template-columns: auto auto auto;
             }
@@ -239,20 +290,35 @@
         <section id="purchase-section">
             <a class="anchor" id="purchase" name="purchase">&nbsp;</a>
             <form id="form" action="https://www.freecodecamp.com/email-submit" method="POST">
-                <div id="location-status">&nbsp</div>
-                <input type="button" onclick="getLocation()" value="Get Location" formnovalidate><br>
-                <label for="latitude">Latitude (in degrees):</label>
-                <input id="latitude" name="latitude" type="number" step="any" min="-90" max="90" placeholder="Provide a latitude"
-                    required><br>
-                <label for="longitude">Water Quantity (in gallons):</label>
-                <input id="longitude" name="longitude" type="number" step="any" min="-180" max="180" placeholder="Provide a longitude"
-                    required><br>
-                <label for="water-amount">Water Quantity (in gallons):</label>
-                <input id="water-amount" name="water-amount" type="number" min="1" placeholder="Gallons of water to order"
-                    required><br>
-                <label for="email">Email Address:</label>
-                <input id="email" name="email" type="email" placeholder="Please enter your email" required><br>
-                <input id="submit" name="submit" type="submit" value="Submit">
+                <fieldset>
+                    <legend>Purchase Information</legend>
+                    <div id="location-div">
+                        <div class="latlong-div">
+                            <label for="latitude">Latitude</label>
+                            <input id="latitude" name="latitude" type="number" step="any" min="-90" max="90"
+                                placeholder="Degrees Latitude" required>
+                        </div>
+                        <div class="latlong-div">
+                            <label for="longitude">Longitude</label>
+                            <input id="longitude" name="longitude" type="number" step="any" min="-180" max="180"
+                                placeholder="Degrees Longitude" required>
+                        </div>
+                        <input id="location-button" type="button" onclick="getLocation()" value="Get My Location"
+                            formnovalidate>
+                    </div>
+
+
+                    <div>
+                        <label for="water-amount">Gallons of Water</label>
+                        <input id="water-amount" name="water-amount" type="number" min="1" placeholder="Gallons of water to order"
+                            required>
+                    </div>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input id="email" name="email" type="email" placeholder="Email address for billing" required>
+                    </div>
+                    <div><input id="submit" name="submit" type="submit" value="Submit Order"></div>
+                </fieldset>
             </form>
         </section>
     </main>
