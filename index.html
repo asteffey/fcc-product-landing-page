@@ -4,6 +4,39 @@
 <head>
     <meta charset="utf-8">
     <title>Water Direct</title>
+    <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else { 
+                    var location_status = document.getElementById("location-status");
+                    location_status.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            
+            function showPosition(position) {
+                document.getElementById("latitude").value = position.coords.latitude;
+                document.getElementById("longitude").value = position.coords.longitude;
+            }
+            
+            function showError(error) {
+                var location_status = document.getElementById("location-status");
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        location_status.innerHTML = "User denied the request for Geolocation."
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        location_status.innerHTML = "Location information is unavailable."
+                        break;
+                    case error.TIMEOUT:
+                        location_status.innerHTML = "The request to get user location timed out."
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        location_status.innerHTML = "An unknown error occurred."
+                        break;
+                }
+            }
+        </script>
 </head>
 
 <body>
@@ -214,40 +247,6 @@
                 <label for="longitude">Water Quantity (in gallons):</label>
                 <input id="longitude" name="longitude" type="number" step="any" min="-180" max="180" placeholder="Provide a longitude"
                     required><br>
-                <script>
-                    var location_status = document.getElementById("location-status");
-                    
-                    function getLocation() {
-                        if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(showPosition, showError);
-                        } else { 
-                            
-                            location_status.innerHTML = "Geolocation is not supported by this browser.";
-                        }
-                    }
-                    
-                    function showPosition(position) {
-                        document.getElementById("latitude").value = position.coords.latitude;
-                        document.getElementById("longitude").value = position.coords.longitude;
-                    }
-                    
-                    function showError(error) {
-                        switch(error.code) {
-                            case error.PERMISSION_DENIED:
-                                location_status.innerHTML = "User denied the request for Geolocation."
-                                break;
-                            case error.POSITION_UNAVAILABLE:
-                                location_status.innerHTML = "Location information is unavailable."
-                                break;
-                            case error.TIMEOUT:
-                                location_status.innerHTML = "The request to get user location timed out."
-                                break;
-                            case error.UNKNOWN_ERROR:
-                                location_status.innerHTML = "An unknown error occurred."
-                                break;
-                        }
-                    }
-                </script>
                 <label for="water-amount">Water Quantity (in gallons):</label>
                 <input id="water-amount" name="water-amount" type="number" min="1" placeholder="Gallons of water to order"
                     required><br>
