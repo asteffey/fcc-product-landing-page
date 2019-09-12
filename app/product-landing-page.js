@@ -1,3 +1,8 @@
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.get('fcc-test') === 'true') {
+    document.getElementById("logo").classList.add("with-fcc-test");
+}
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);

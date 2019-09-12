@@ -7,8 +7,6 @@
 
     --header-height: calc(var(--logo-height) + var(--nav-height));
     --top-offset: calc(var(--header-height) + 15px);
-
-    --logo-left-margin-offset: 0;
 }
 
 body, header, nav, nav ul, nav ul li {
@@ -185,7 +183,11 @@ div.latlong-div {
     }
 
     #logo {
-        margin-left: var(--logo-left-margin-offset);
+        margin-left: 0;
+    }
+
+    #logo.with-fcc-test {
+        margin-left: 40px;
     }
 
     nav {
