@@ -22,7 +22,6 @@
     "start": "gulp start",
     "clean": "gulp clean",
     "build": "gulp build",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -a -d dist -e build-a-product-landing-page"
+    "predeploy": "yarn build"
   }
 }
