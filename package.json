@@ -1,7 +1,7 @@
 {
-  "name": "build-a-product-landing-page",
+  "name": "fcc-product-landing-page",
   "version": "1.0.0",
-  "repository": "https://github.com/asteffey/freecodecamp/tree/master/responsive-web-design/build-a-product-landing-page",
+  "repository": "https://github.com/asteffey/fcc-product-landing-page",
   "author": "Andrew Steffey",
   "license": "MIT",
   "private": true,
