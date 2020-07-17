@@ -1,4 +1,4 @@
-## Responsive Web Design Projects - Build a Survey Form
+## Responsive Web Design Projects - Build a Product Landing Page
 
 
 [![Build Status](https://travis-ci.org/asteffey/fcc-product-landing-page.svg?branch=master)](https://travis-ci.org/asteffey/fcc-product-landing-page)
